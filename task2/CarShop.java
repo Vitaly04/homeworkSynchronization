@@ -15,8 +15,8 @@ public class CarShop {
         condition = locker.newCondition();
     }
     public void makeCar() {
-        locker.lock();
         try {
+            locker.lock();
             while (car >= 1) {
                 condition.await();
             }
@@ -32,8 +32,8 @@ public class CarShop {
     }
 
     public void buyCar() {
-        locker.lock();
         try {
+            locker.lock();
             System.out.println(Thread.currentThread().getName() + " зашел в автосалон");
             while (car < 1) {
                 System.out.println(Thread.currentThread().getName() + " ждет машину");
